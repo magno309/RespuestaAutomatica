@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RespuestaAutomatica</string>
+    <string name="lblTitulo">Mensajes automáticos</string>
+    <string name="lblInstrucciones1">Ingrese el número al que desea responder automáticamente:</string>
+    <string name="lblInstrucciones2">Ingrese el mensaje con el que desea responder:</string>
+    <string name="lblNumeroActual">Número actual:</string>
+    <string name="lblMensajeActual">Mensaje actual:</string>
+    <string name="txtTelefono">Teléfono</string>
+    <string name="txtMensaje">Mensaje</string>
+    <string name="btnGuardar">Guardar</string>
+</resources>
