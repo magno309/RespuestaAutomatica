@@ -25,10 +25,19 @@ public class MainActivity extends AppCompatActivity {
         btnGuardar = findViewById(R.id.btnGuardar);
         btnGuardar.setOnClickListener(v -> {
             //Aquí va el código
-            telefono = txtTelefono.getText().toString();
-            mensaje = txtMensaje.getText().toString();
-            CallReceiver callReceiver = new CallReceiver();
-            Toast.makeText(this, "Datos guardados!", Toast.LENGTH_SHORT).show();
+            if(!txtMensaje.getText().toString().equals("")){
+                if(!txtTelefono.getText().toString().equals("")){
+                    telefono = txtTelefono.getText().toString();
+                    mensaje = txtMensaje.getText().toString();
+                    Toast.makeText(this, "Datos guardados!", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this, "Ingrese un mensaje!", Toast.LENGTH_SHORT).show();
+                    txtMensaje.requestFocus();
+                }
+            }else {
+                Toast.makeText(this, "Ingrese un número de teléfono!", Toast.LENGTH_SHORT).show();
+                txtTelefono.requestFocus();
+            }
         });
     }
 }
