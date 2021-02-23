@@ -8,4 +8,6 @@
     <string name="txtTelefono">Teléfono</string>
     <string name="txtMensaje">Mensaje</string>
     <string name="btnGuardar">Guardar</string>
+    <string name="KEY_MENSAJE">kMensaje</string>
+    <string name="KEY_TELEFONO">kTelefono</string>
 </resources>

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 
 import java.util.Date;
 
@@ -18,7 +19,6 @@ public abstract class PhoneCallReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-
         //We listen to two intents.  The new outgoing call only tells us of an outgoing call.  We use it to get the number.
         if (intent.getAction().equals("android.intent.action.NEW_OUTGOING_CALL")) {
             savedNumber = intent.getExtras().getString("android.intent.extra.PHONE_NUMBER");
