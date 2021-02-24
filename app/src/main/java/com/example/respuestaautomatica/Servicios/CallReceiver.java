@@ -19,22 +19,22 @@ public class CallReceiver extends PhoneCallReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-        //Log.d("ICRA", "Entra a onReceive heredado");
     }
 
     @Override
     protected void onIncomingCallReceived(Context ctx, String number, Date start) {
         Log.d("ICRA", "Llamada recibida: " + number);
         sharedPreferences = ctx.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-        String telefono = sharedPreferences.getString(ctx.getResources().getString(R.string.KEY_TELEFONO), "");
+        String telefonoLlamada = sharedPreferences.getString(
+                ctx.getResources().getString(R.string.KEY_TELEFONO_LLAMADA), "");
+        String telefonoMensaje = sharedPreferences.getString(
+                ctx.getResources().getString(R.string.KEY_TELEFONO_MENSAJE), "");
         String mensaje = sharedPreferences.getString(ctx.getResources().getString(R.string.KEY_MENSAJE), "");
-        //Log.d("ICRA", "Telefono: " + telefono);
-        //Log.d("ICRA", "Mensaje: " + mensaje);
-        if(number.equals(telefono)){
+        if(number.equals(telefonoLlamada)){
             try{
                 SmsManager sms = SmsManager.getDefault();
-                sms.sendTextMessage(telefono, null, mensaje, null, null);
-                Toast.makeText(ctx, "Mensaje enviado!", Toast.LENGTH_LONG).show();
+                sms.sendTextMessage(telefonoMensaje, null, mensaje, null, null);
+                Toast.makeText(ctx, "¡Mensaje enviado!", Toast.LENGTH_LONG).show();
             }catch (Exception e){
                 Log.d("ICRA", e.getMessage());
             }

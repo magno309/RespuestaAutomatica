@@ -21,10 +21,10 @@ import com.example.respuestaautomatica.Servicios.CallReceiver;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView txtTelefono, txtMensaje;
+    TextView txtTelefono, txtTelefonoMsg, txtMensaje;
     Button btnGuardar;
 
-    public String telefono, mensaje;
+    public String telefonoLlamada, telefonoMensaje, mensaje;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,29 +32,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         SharedPreferences sharedPref = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        telefono = sharedPref.getString(getResources().getString(R.string.KEY_TELEFONO), "");
+        telefonoLlamada = sharedPref.getString(getResources().getString(R.string.KEY_TELEFONO_LLAMADA), "");
+        telefonoMensaje = sharedPref.getString(getResources().getString(R.string.KEY_TELEFONO_MENSAJE), "");
         mensaje = sharedPref.getString(getResources().getString(R.string.KEY_MENSAJE), "");
+
         txtTelefono = findViewById(R.id.txtTelefonoActual);
+        txtTelefonoMsg = findViewById(R.id.txtTelefonoMsg);
         txtMensaje = findViewById(R.id.txtMensaje);
         btnGuardar = findViewById(R.id.btnGuardar);
         txtMensaje.setText(mensaje);
-        txtTelefono.setText(telefono);
-        //obtenerPermisos();
+        txtTelefono.setText(telefonoLlamada);
+        txtTelefonoMsg.setText(telefonoMensaje);
+
         btnGuardar.setOnClickListener(v -> {
             //Aquí va el código
             if(!txtMensaje.getText().toString().equals("")){
-                if(!txtTelefono.getText().toString().equals("")){
-                    editor.putString(getString(R.string.KEY_TELEFONO), txtTelefono.getText().toString());
+                if(!txtTelefono.getText().toString().equals("") && !txtTelefonoMsg.getText().toString().equals("")){
+                    editor.putString(getString(R.string.KEY_TELEFONO_LLAMADA), txtTelefono.getText().toString());
+                    editor.putString(getString(R.string.KEY_TELEFONO_MENSAJE), txtTelefonoMsg.getText().toString());
                     editor.putString(getString(R.string.KEY_MENSAJE), txtMensaje.getText().toString());
                     editor.commit();
-                    Toast.makeText(this, "Datos guardados!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "¡Datos guardados!", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(this, "Ingrese un mensaje!", Toast.LENGTH_SHORT).show();
-                    txtMensaje.requestFocus();
+                    Toast.makeText(this, "Ingrese los 2 teléfonos", Toast.LENGTH_SHORT).show();
                 }
             }else {
-                Toast.makeText(this, "Ingrese un número de teléfono!", Toast.LENGTH_SHORT).show();
-                txtTelefono.requestFocus();
+                Toast.makeText(this, "Ingrese un mensaje", Toast.LENGTH_SHORT).show();
+                txtMensaje.requestFocus();
             }
         });
     }

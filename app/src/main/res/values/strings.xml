@@ -1,13 +1,17 @@
 <resources>
     <string name="app_name">RespuestaAutomatica</string>
     <string name="lblTitulo">Mensajes automáticos</string>
-    <string name="lblInstrucciones1">Ingrese el número al que desea responder automáticamente:</string>
-    <string name="lblInstrucciones2">Ingrese el mensaje con el que desea responder:</string>
-    <string name="lblNumeroActual">Número actual:</string>
+    <string name="lblInstrucciones">Ingrese el número que activa el envío de mensaje cuando llama:</string>
+    <string name="lblInstrucciones1">Ingrese el número al que desea enviar el mensaje:</string>
+    <string name="lblInstrucciones2">Ingrese el mensaje que desea enviar:</string>
+    <string name="lblNumeroActual">Número de llamada:</string>
+    <string name="lblNumeroMensaje">Número de mensaje:</string>
     <string name="lblMensajeActual">Mensaje actual:</string>
-    <string name="txtTelefono">Teléfono</string>
+    <string name="txtTelefono">Teléfono de llamada</string>
+    <string name="txtTelefonoMsg">Teléfono de mensaje</string>
     <string name="txtMensaje">Mensaje</string>
     <string name="btnGuardar">Guardar</string>
     <string name="KEY_MENSAJE">kMensaje</string>
-    <string name="KEY_TELEFONO">kTelefono</string>
+    <string name="KEY_TELEFONO_LLAMADA">kTelefonoLlamada</string>
+    <string name="KEY_TELEFONO_MENSAJE">kTelefonoMensaje</string>
 </resources>
